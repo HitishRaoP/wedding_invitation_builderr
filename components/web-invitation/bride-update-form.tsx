@@ -29,7 +29,7 @@ export function BrideUpdateForm() {
                     render={({ field }) =>
                     (
                         <FormItem>
-                            <FormLabel>Update Bride's Photo</FormLabel>
+                            <FormLabel>Update Bride&apos;s Photo</FormLabel>
                             <FormControl>
                                 <Input
                                     type="file"
@@ -45,7 +45,7 @@ export function BrideUpdateForm() {
                     render={({ field }) =>
                     (
                         <FormItem>
-                            <FormLabel>Update Bride's info</FormLabel>
+                            <FormLabel>Update Bride&apos;s info</FormLabel>
                             <FormControl>
                                 <Textarea
                                     {...field}

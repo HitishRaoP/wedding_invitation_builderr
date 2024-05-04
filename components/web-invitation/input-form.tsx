@@ -29,7 +29,7 @@ export function InputForm() {
                             render={({ field }) =>
                             (
                                 <FormItem>
-                                    <FormLabel>Bride's Name</FormLabel>
+                                    <FormLabel>Bride&apos;s Name</FormLabel>
                                     <FormControl>
                                         <Input {...field} />
                                     </FormControl>
@@ -42,7 +42,7 @@ export function InputForm() {
                             render={({ field }) =>
                             (
                                 <FormItem>
-                                    <FormLabel>Bride's Father Name</FormLabel>
+                                    <FormLabel>Bride&apos;s Father Name</FormLabel>
                                     <FormControl>
                                         <Input {...field} />
                                     </FormControl>
