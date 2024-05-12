@@ -1,13 +1,39 @@
 "use client"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Input } from "@/components/ui/input"
-import { usePersonStore } from "@/state/state"
 import { Location } from "./location"
 import { Bride } from "./bride"
 import { Groom } from "./groom"
 import { Invite } from "./invite"
 
-export const WebInvitation = () => {
+interface WebInvitationProps {
+    coupleSrc: string
+    brideName: string
+    groomName: string
+    date: string
+    day: string
+    time: string
+    location: string
+    brideSrc: string
+    groomSrc: string
+    brideText: string
+    groomText: string
+}
+export const WebInvitation = (
+    {
+        coupleSrc,
+        brideName,
+        groomName,
+        date,
+        day,
+        time,
+        location,
+        brideSrc,
+        groomSrc,
+        brideText,
+        groomText
+    }: WebInvitationProps
+) => {
+
     const tabsList =
         [
             "Invite",
@@ -15,6 +41,7 @@ export const WebInvitation = () => {
             "Bride",
             "Groom"
         ]
+
     return (
         <Tabs defaultValue="Invite" className="w-full">
             <TabsList>
@@ -29,19 +56,35 @@ export const WebInvitation = () => {
                 }
             </TabsList>
             <TabsContent value="Invite" className="w-full">
-                <Invite />
+                <Invite
+                    src={coupleSrc}
+                    alt={brideName + groomName}
+                    bridename={brideName}
+                    groomname={groomName}
+                    date={date}
+                    day={day}
+                    time={time}
+                    location={location}
+                />
             </TabsContent>
             <TabsContent value="Location">
-                <Location />
+                <Location
+                    location={location} />
             </TabsContent>
             <TabsContent value="Bride">
-                <Bride />
+                <Bride
+                    name={brideName}
+                    alt={brideName}
+                    src={brideSrc}
+                    text={brideText} />
             </TabsContent>
             <TabsContent value="Groom">
-                <Groom />
+                <Groom
+                    name={groomName}
+                    alt={groomName}
+                    src={groomSrc}
+                    text={groomText} />
             </TabsContent>
-            <TabsContent value="password">Change your password here.</TabsContent>
         </Tabs>
-
     )
 }

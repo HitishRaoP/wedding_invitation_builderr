@@ -1,9 +1,12 @@
-import { InputForm } from '@/components/web-invitation/input-form'
+"use client"
 
+import { CreateFromNew } from '@/components/create-form-new'
+import { Navbar } from '@/components/navbar'
 function CreatePage() {
   return (
     <main>
-        <InputForm />
+      <Navbar />
+      <CreateFromNew />
     </main>
   )
 }

@@ -1,34 +1,49 @@
-import { ImageInput } from "@/components/image-input"
-import { SparklesText } from "@/components/particles"
+import { Navbar } from "@/components/navbar";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import Image from "next/image"
+import { IoIosCheckmark } from "react-icons/io";
 
+const featuresList = [
+  "Custom Dashboard",
+  "Modern Invitation",
+  "Location Page",
+  "Bride Page",
+  "Groom Page",
+]
 function Pricing() {
   return (
-    <Card className="h-fit my-8">
-      <CardHeader>
-        <CardTitle>Card Title</CardTitle>
+    <>
+    <Navbar />
+    <Card className="h-fit my-8 text-md w-fit shadow-sm">
+      <CardHeader className="flex flex-col gap-4 text-center text-green-800">
+        <CardTitle>WEBSITE WEDDING INVITATION</CardTitle>
+        <CardDescription>Create modern website wedding invitations in minutes</CardDescription>
       </CardHeader>
-      <CardContent className="grid grid-cols-1 md:grid-cols-2 items-center p-0">
-        <CardContent>
-          <ImageInput
-            src="/template.png"
-            alt="groom-photo" />
+      <CardContent className="flex flex-col gap-4 px-0">
+        <CardContent className="w-full px-4">
+          {
+            featuresList.map((feature, index) => {
+              return (
+                <div className="flex gap-2 items-center justify-start w-full my-2" key={index} >
+                  <IoIosCheckmark className="w-6 h-6 sm:w-10 sm:h-10 text-green-600" />
+                  <span className=" ">{feature}</span>
+                </div>)
+            })
+          }
         </CardContent>
-        <CardContent>
-          <SparklesText
-            text="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
+        <CardContent className="w-full">
+          <div className="text-md sm:text-lg bg-lime-200 rounded-lg p-4 text-center shadow-md border boder-lime-300">
+            ₹2500 / Website Wedding Invitation
+          </div>
         </CardContent>
       </CardContent>
     </Card>
-
+    </>
   )
 }
 

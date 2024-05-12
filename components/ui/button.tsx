@@ -18,8 +18,10 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        create : "bg-lime-300 hover:bg-lime-400",
+        create : "bg-lime-200 hover:bg-lime-300",
         update : "bg-amber-200 hover:bg-amber-300",
+        delete : "text-red-500 focus-visible:ring-0 focus-visible:ring-offset-0 w-full flex items-center justify-center gap-4 focus-visible:text-red-500",
+        edit : " text-black focus-visible:ring-0 focus-visible:ring-offset-0 w-full flex justify-between items-center focus-visible:text-black",
       },
       size: {
         default: "h-10 px-4 py-2",

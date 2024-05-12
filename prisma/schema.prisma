@@ -1,5 +1,5 @@
 datasource db {
-  provider = "mongodb"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -7,35 +7,48 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Post {
-  id       String    @id @default(auto()) @map("_id") @db.ObjectId
-  slug     String    @unique
-  title    String
-  body     String
-  author   User      @relation(fields: [authorId], references: [id])
-  authorId String    @db.ObjectId
-  comments Comment[]
-}
-
 model User {
-  id      String   @id @default(auto()) @map("_id") @db.ObjectId
-  email   String   @unique
-  name    String?
-  address Address?
-  posts   Post[]
+  id          String       @unique @default(cuid())
+  clerkId     String       @unique
+  username    String
+  email       String
+  invitations Invitation[]
+  feedback    Feedback[]
 }
 
-model Comment {
-  id      String @id @default(auto()) @map("_id") @db.ObjectId
-  comment String
-  post    Post   @relation(fields: [postId], references: [id])
-  postId  String @db.ObjectId
+model Invitation {
+  id           String     @unique @default(cuid())
+  projectName  String
+  couplesSrc   String
+  brideName    String
+  groomName    String
+  date         String
+  day          String
+  time         String
+  location     String
+  brideSrc     String
+  groomSrc     String
+  brideText    String
+  groomText    String
+  author       User       @relation(fields: [authorId], references: [id])
+  authorId     String     @default(cuid())
+  razorpay     RazorPay[]
 }
 
-// Address is an embedded document
-type Address {
-  street String
-  city   String
-  state  String
-  zip    String
+model RazorPay {
+  id                String     @unique @default(cuid())
+  razorpayOrderId   String
+  razorpayPaymentId String
+  razorpaySignature String
+  invitation        Invitation @relation(fields: [invitationId], references: [id])
+  invitationId      String     @default(cuid())
+}
+
+model Feedback {
+  id       String @unique @default(cuid())
+  name     String
+  email    String
+  feedback String
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId String @default(cuid())
 }

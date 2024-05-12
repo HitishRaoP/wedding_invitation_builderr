@@ -6,19 +6,42 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { locationSchema } from "@/schemas";
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "../ui/button";
-import { usePersonStore } from "@/state/state";
+import { useTransition } from "react";
+import { locationUpdate } from "@/actions/location";
+import { toast } from "sonner";
+import { useParams, useSearchParams } from "next/navigation";
 
+type InvitationIdProps = {
+    slug: string
+}
 export function LocationUpdateForm() {
-const {location, updateLocation} = usePersonStore()
+    const InvitationId: InvitationIdProps = useParams()
+    const searchparams = useSearchParams()
+    const pid: string  = searchparams.get('pid') || ""
+    const [isLoading, startTransition] = useTransition()
     const form = useForm({
         resolver: zodResolver(locationSchema),
         defaultValues: {
             location: ""
         }
     })
-    const onSubmit = (values: z.infer<typeof locationSchema>) => {
-        console.log(values)
-    }
+    const onSubmit = async (values: z.infer<typeof locationSchema>) => {
+        startTransition(() => {
+            locationUpdate(pid, values)
+                .then((data) => {
+                    if (data.error) {
+                        toast.error(data.error);
+                    } else {
+                        toast.success(data.success);
+                    }
+                })
+                .catch((error) => {
+                    toast.error("An error occurred while updating location");
+                    console.error(error);
+                });
+        });
+    };
+
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -31,10 +54,6 @@ const {location, updateLocation} = usePersonStore()
                             <FormControl>
                                 <Textarea
                                     {...field}
-                                    value={location}
-                                    onChange={(e) => {
-                                        updateLocation(e.target.value)
-                                    }}
                                 />
                             </FormControl>
                             <FormMessage />

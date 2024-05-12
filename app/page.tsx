@@ -1,14 +1,12 @@
-"use client";
+"use client"
 
-import { LandingPage } from "@/components/home/main";
-import { SparklesText } from "@/components/particles";
-
+import { LandingPage } from "@/components/landing-page";
+import { Navbar } from "@/components/navbar";
 export default function Home() {
   return (
-    <main className="py-8" >
+    <main>
+      <Navbar />
       <LandingPage />
-      <SparklesText
-        text="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
     </main>
   );
 }

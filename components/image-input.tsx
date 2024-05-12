@@ -1,8 +1,9 @@
 import Image from 'next/image'
+import { AspectRatio } from "@/components/ui/aspect-ratio"
 
 interface ImageInputProps {
     src: string
-    alt : string
+    alt: string
 }
 export function ImageInput(
     {
@@ -11,13 +12,13 @@ export function ImageInput(
     }: ImageInputProps
 ) {
     return (
-        <div className="w-full h-[600px]">
+        <AspectRatio className='' ratio={2 / 1}>
             <Image
                 src={src}
                 alt={alt}
-                width={0}
-                height={0}
-                className="rounded-lg w-full h-full" />
-        </div>
+                width={1000}
+                height={1000}
+                className="rounded-lg w-full h-full object-fill " />
+        </AspectRatio>
     )
 }

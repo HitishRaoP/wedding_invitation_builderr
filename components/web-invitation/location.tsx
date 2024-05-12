@@ -1,28 +1,26 @@
 "use client"
-import { usePersonStore } from "@/state/state";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { locationSchema } from "@/schemas";
+
 import { LocationUpdateForm } from "./location-update-form";
+import { usePathname } from "next/navigation";
 
+interface LocationProps {
+    location: string
+}
+export function Location(
+    {
+        location
+    }: LocationProps
+) {
 
-export function Location() {
-    const { location, updateLocation } = usePersonStore();
-
-    const form = useForm({
-        resolver: zodResolver(locationSchema),
-        defaultValues: {
-            location: ""
-        }
-    })
-    const onSubmit = (values: z.infer<typeof locationSchema>) => {
-        console.log(values)
-    }
+    const pathname = usePathname();
     return (
-        <div className="space-y-4 mb-8">
-        <LocationUpdateForm />
-            <div>
+        <div className="space-y-4">
+            {
+                pathname.includes("edit") && (
+                    <LocationUpdateForm />
+                )
+            }
+            <div className="">
                 <div id="canvas-for-googlemap">
                     <iframe
                         className="rounded-lg"

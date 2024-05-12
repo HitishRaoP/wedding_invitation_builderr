@@ -1,37 +1,52 @@
-import Image from "next/image"
 import { BrideUpdateForm } from "./bride-update-form"
 import { SparklesText } from "../particles"
 import {
     Card,
     CardContent,
-    CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
 import { ImageInput } from "../image-input"
-export function Bride() {
+import { usePathname } from "next/navigation"
+
+interface BrideProps {
+    name: string,
+    src: string,
+    alt: string
+    text: string
+}
+export function Bride(
+    {
+        name,
+        src,
+        alt,
+        text
+    }: BrideProps
+) {
+    const pathname = usePathname();
     return (
-        <div className="flex flex-col">
-            <BrideUpdateForm />
-            <Card className="h-fit my-8">
+        <div className="flex flex-col gap-4">
+            {
+                pathname.includes("edit") && (
+                    <BrideUpdateForm />
+                )
+            }
+            <Card className="h-fit">
                 <CardHeader>
-                    <CardTitle>Bride Name</CardTitle>
+                    <CardTitle>{name}</CardTitle>
                 </CardHeader>
-                <CardContent className="grid grid-cols-1 md:grid-cols-2 items-center p-0">
-                    <CardContent>
+                <CardContent className="flex flex-wrap items-center p-0">
+                    <CardContent className="w-full h-full">
                         <ImageInput
-                            src="/template.png"
-                            alt="bride-photo" />
+                            src={src}
+                            alt={alt} />
                     </CardContent>
-                    <CardContent>
+                    <CardContent className="w-full h-full">
                         <SparklesText
-                        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, ducimus." />
+                            text={text} />
                     </CardContent>
                 </CardContent>
             </Card>
         </div>
-
-
     )
 }

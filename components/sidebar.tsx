@@ -6,7 +6,6 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
-
 import { RxHamburgerMenu } from "react-icons/rx";
 import { CompanyLogo } from "./company-logo";
 import Link from "next/link";
@@ -36,7 +35,7 @@ export function Sidebar() {
                 <SheetHeader>
                     <SheetTitle className="flex items-center gap-4">
                         <CompanyLogo />
-                        <span>Company Name</span>
+                        <span>Unrealon</span>
                     </SheetTitle>
                     <SheetDescription className="flex flex-col gap-4 py-4">
                         {
@@ -44,7 +43,6 @@ export function Sidebar() {
                                 <Button variant={'ghost'} className="text-lg flex justify-start m-0 p-6 px-14" asChild key={item.name}>
                                     <Link href={item.href}>{item.name}</Link>
                                 </Button>
-
                             ))
                         }
                     </SheetDescription>
