@@ -1,11 +1,11 @@
 import { Webhook } from 'svix'
 import { headers } from 'next/headers'
-import { WebhookEvent} from '@clerk/nextjs/server'
+import { WebhookEvent, clerkClient } from '@clerk/nextjs/server'
 import { db } from '@/lib/db'
 
 export async function POST(req: Request) {
 
-  const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET_DEV || process.env.WEBHOOK_SECRET_PROD
+  const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET_PROD
 
   if (!WEBHOOK_SECRET) {
     throw new Error('Please add WEBHOOK_SECRET from Clerk Dashboard to .env or .env.local')
@@ -67,6 +67,19 @@ export async function POST(req: Request) {
       },
     })
 
+    //Update the user metadata
+    await clerkClient.users.updateUserMetadata(id, {
+      publicMetadata: {
+        userId: db.user.findUnique({
+          where: {
+            clerkId: id
+          },
+          select: {
+            id: true
+          }
+        })
+      }
+    })
   }
 
   if (evt.type === 'user.deleted') {
@@ -76,10 +89,6 @@ export async function POST(req: Request) {
         where:
           { clerkId: evt.data.id }
       })
-
   }
-
-
-
   return new Response('', { status: 200 })
 }
