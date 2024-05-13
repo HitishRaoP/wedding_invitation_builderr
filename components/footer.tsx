@@ -2,8 +2,12 @@ import Link from "next/link";
 
 const footerList = [
   {
+    title: 'About us',
+    link: '/about-us'
+  },
+  {
     title: 'Feedback',
-    link: '/feedback'
+    link: '/contact'
   },
   {
     title: 'Terms & Conditions',
