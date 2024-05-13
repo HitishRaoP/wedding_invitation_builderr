@@ -8,7 +8,7 @@ import {
     '/create(.*)',
     '/websites/(.*)',
   ]);
-  
+
   export default clerkMiddleware((auth, req) => {
     if (isProtectedRoute(req)) auth().protect();
   });
