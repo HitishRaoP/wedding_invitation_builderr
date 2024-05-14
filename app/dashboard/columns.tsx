@@ -141,24 +141,28 @@ export const columns: ColumnDef<ColumnsSchema>[] = [
     cell: ({ row }) => {
 
       return (
-        <AlertDialog >
-          <AlertDialogTrigger>  <MdDeleteOutline className="w-4 h-4 text-red-500" /></AlertDialogTrigger>
-          <AlertDialogContent>
-            <AlertDialogHeader>
-              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-              <AlertDialogDescription>
-                This action cannot be undone. This will permanently delete your invitation from the servers.
-              </AlertDialogDescription>
-            </AlertDialogHeader>
-            <AlertDialogFooter>
-              <AlertDialogCancel>Cancel</AlertDialogCancel>
-              <AlertDialogAction className="bg-red-500 hover:bg-red-600" onClick={() => {
-                deleteInvitation(row.getValue("razorpaySignature"), row.getValue("projectLink"))
-                location.reload()
-              }}>Delete</AlertDialogAction>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialog>
+        <div>
+          <AlertDialog>
+            <div>
+              <AlertDialogTrigger>  <MdDeleteOutline className="w-4 h-4 text-red-500" /></AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    This action cannot be undone. This will permanently delete your invitation from the servers.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogAction className="bg-red-500 hover:bg-red-600" onClick={() => {
+                    deleteInvitation(row.getValue("razorpaySignature"), row.getValue("projectLink"))
+                    location.reload()
+                  }}>Delete</AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </div>
+          </AlertDialog>
+        </div>
       )
     },
   }

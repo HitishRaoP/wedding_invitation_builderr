@@ -21,8 +21,8 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={cn(inter.className, "container container-2xl overflow-scroll")}>
-          <main>
+        <body className={cn(inter.className)}>
+          <main className="container container-2xl">
             {children}
             <Footer />
           </main>
