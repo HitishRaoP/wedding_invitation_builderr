@@ -1,8 +1,10 @@
+import { Navbar } from "@/components/navbar"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 function AboutUs() {
   return (
     <>
+    <Navbar/>
     <Card className="my-8">
       <CardHeader>
         <CardTitle className="text-green-500">
