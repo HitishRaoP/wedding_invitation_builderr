@@ -1,7 +1,7 @@
 "use client"
 import { feedbackSchema } from '@/schemas'
 import { zodResolver } from '@hookform/resolvers/zod'
-import React, { useTransition } from 'react'
+import { useEffect, useState, useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from './ui/form'
 import { Input } from './ui/input'
@@ -25,6 +25,7 @@ export function FeedbackForm() {
         }
     })
 
+    //Submit Function
     const onSubmit = (values: z.infer<typeof feedbackSchema>) => {
         startTransition(() => {
             createFeedback(values)
@@ -39,76 +40,76 @@ export function FeedbackForm() {
 
     return (
         <>
-        <Card className='my-4 shadow-lg'>
-            <CardHeader>
-                <CardTitle>
-                    CONTACT US
-                </CardTitle>
-            </CardHeader>
-            <CardContent>
-                Email : hitishraop@gmail.com
-            </CardContent>
-            <CardContent>
-                Address : 160,NBH-5, Tippu Sultan Palace Rd, Chamrajpet, Bengaluru, Karnataka 560018
-            </CardContent>
-        </Card>
-        <Form {...form}>
-            <form className='space-y-4 my-4' onSubmit={form.handleSubmit(onSubmit)} >
-                <FormField
-                    control={form.control}
-                    name='name'
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>
-                                Name
-                            </FormLabel>
-                            <FormControl>
-                                <Input
-                                    {...field}
-                                    type="text"
-                                    placeholder="Name"
-                                />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )} />
-                <FormField
-                    control={form.control}
-                    name='email'
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>
-                                Email
-                            </FormLabel>
-                            <FormControl>
-                                <Input
-                                    {...field}
-                                    type="text"
-                                    placeholder="Email"
-                                />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )} />
-                <FormField
-                    control={form.control}
-                    name='feedback'
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>
-                                Feedback
-                            </FormLabel>
-                            <FormControl>
-                                <Textarea
-                                    {...field}
-                                />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )} />
-                <Button variant="create">Submit</Button>
-            </form>
-        </Form>
+            <Card className='my-4 shadow-lg'>
+                <CardHeader>
+                    <CardTitle>
+                        CONTACT US
+                    </CardTitle>
+                </CardHeader>
+                <CardContent>
+                    Email : unrealon.official@gmail.com
+                </CardContent>
+                <CardContent>
+                    Address : 160,NBH-5, Tippu Sultan Palace Rd, Chamrajpet, Bengaluru, Karnataka 560018
+                </CardContent>
+            </Card>
+            <Form {...form}>
+                <form className='space-y-4 my-4' onSubmit={form.handleSubmit(onSubmit)} >
+                    <FormField
+                        control={form.control}
+                        name='name'
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>
+                                    Name
+                                </FormLabel>
+                                <FormControl>
+                                    <Input
+                                        {...field}
+                                        type="text"
+                                        placeholder="Name"
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )} />
+                    <FormField
+                        control={form.control}
+                        name='email'
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>
+                                    Email
+                                </FormLabel>
+                                <FormControl>
+                                    <Input
+                                        {...field}
+                                        type="text"
+                                        placeholder="Email"
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )} />
+                    <FormField
+                        control={form.control}
+                        name='feedback'
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>
+                                    Feedback
+                                </FormLabel>
+                                <FormControl>
+                                    <Textarea
+                                        {...field}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )} />
+                    <Button variant="create">Submit</Button>
+                </form>
+            </Form>
         </>
     )
 }

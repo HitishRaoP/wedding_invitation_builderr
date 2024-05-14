@@ -5,8 +5,8 @@ import { Navbar } from '@/components/navbar'
 function FeedbackPage() {
   return (
     <div>
-      <Navbar/>
-      <FeedbackForm />
+        <Navbar />
+        <FeedbackForm />
     </div>
   )
 }

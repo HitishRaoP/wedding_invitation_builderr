@@ -47,13 +47,6 @@ export function Navbar({ className }: NavbarProps) {
                             </NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
-                    <NavigationMenuItem>
-                        <Link href="/contact" legacyBehavior passHref>
-                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                Contact Us
-                            </NavigationMenuLink>
-                        </Link>
-                    </NavigationMenuItem>
                 </NavigationMenuList>
                 <NavigationMenuList className="flex items-center gap-4">
                     <NavigationMenuItem>
