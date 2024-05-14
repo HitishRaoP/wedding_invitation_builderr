@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { IoMdCopy } from "react-icons/io";
 import { IoIosCheckmark } from "react-icons/io";
 import { ScrollArea } from './ui/scroll-area';
+import { toast } from 'sonner';
 
 export const CopyToClipboardButton = ({ text }: { text: string }) => {
     const [isCopied, setIsCopied] = useState(false);
@@ -21,6 +22,7 @@ export const CopyToClipboardButton = ({ text }: { text: string }) => {
     const handleCopyClick = async () => {
         try {
             await copy(text);
+            toast.success("Website URL copied to clipboard");
             setIsCopied(true);
         } catch (error) {
             console.error('Failed to copy text to clipboard', error);

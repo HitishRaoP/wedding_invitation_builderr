@@ -23,6 +23,14 @@ const list = [
     {
         name: "Dashboard",
         href: "/dashboard",
+    },
+    {
+        name: "About Us",
+        href: "/about-us",
+    },
+    {
+        name: "Contact Us",
+        href: "/contact",
     }
 ]
 export function Sidebar() {
