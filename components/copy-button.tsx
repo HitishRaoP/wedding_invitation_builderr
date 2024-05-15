@@ -29,8 +29,7 @@ export const CopyToClipboardButton = ({ text }: { text: string }) => {
     };
 
     return (
-        <div>
-            <Dialog modal={true} >
+            <Dialog>
                 <DialogTrigger>
                     <IoShareOutline />
                 </DialogTrigger>
@@ -48,6 +47,5 @@ export const CopyToClipboardButton = ({ text }: { text: string }) => {
                     </DialogHeader>
                 </DialogContent>
             </Dialog>
-        </div>
     );
 };

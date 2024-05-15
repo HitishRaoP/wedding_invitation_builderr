@@ -85,12 +85,12 @@ export const columns: ColumnDef<ColumnsSchema>[] = [
                       Visit
                     </Link>
                     <CopyToClipboardButton
-                      text={`wedding.unrealon.com/websites/?pid=${row.getValue("projectLink")}`} />
+                      text={`https://wedding-invitation-builderr-git-main-hitish-rao-p-s-projects.vercel.app/websites/?pid=${row.getValue("projectLink")}`} />
                   </TooltipTrigger>
                   <TooltipContent className="flex gap-2 items-center hover:text-blue-600">
                     <FaExternalLinkAlt />
-                    <Link href={`wedding.unrealon.com/websites/?pid=${row.getValue("projectLink")}`}>
-                      wedding.unrealon.com/websites/?pid={row.getValue("projectLink")}
+                    <Link href={`https://wedding-invitation-builderr-git-main-hitish-rao-p-s-projects.vercel.app/websites/?pid=${row.getValue("projectLink")}`}>
+                      https://wedding-invitation-builderr-git-main-hitish-rao-p-s-projects.vercel.app/websites/?pid={row.getValue("projectLink")}
                     </Link>
                   </TooltipContent>
                 </Tooltip>
@@ -125,8 +125,8 @@ export const columns: ColumnDef<ColumnsSchema>[] = [
                   </TooltipTrigger>
                   <TooltipContent className="flex gap-2 items-center hover:text-blue-600">
                     <FaExternalLinkAlt />
-                    <Link href={`wedding.unrealon.com/websites/edit/?pid=${row.getValue("projectLink")}&rid=${row.getValue("razorpaySignature")}`}>
-                      wedding.unrealon.com/websites/edit/?pid={row.getValue("projectLink")}&rid={row.getValue("razorpaySignature")}
+                    <Link href={`https://wedding-invitation-builderr-git-main-hitish-rao-p-s-projects.vercel.app/websites/edit/?pid=${row.getValue("projectLink")}&rid=${row.getValue("razorpaySignature")}`}>
+                    https://wedding-invitation-builderr-git-main-hitish-rao-p-s-projects.vercel.app/websites/edit/?pid={row.getValue("projectLink")}&rid={row.getValue("razorpaySignature")}
                     </Link>
                   </TooltipContent>
                 </Tooltip>
