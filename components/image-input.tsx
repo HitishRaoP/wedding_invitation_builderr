@@ -18,7 +18,7 @@ export function ImageInput(
                 alt={alt}
                 width={1000}
                 height={1000}
-                className="rounded-lg w-full h-full object-fill " />
+                className=" w-full h-full object-cover rounded-md" />
         </AspectRatio>
     )
 }

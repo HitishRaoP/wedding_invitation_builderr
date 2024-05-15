@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+
 import { SparklesCore } from "@/components/ui/sparkles";
 import { ScrollArea } from "./ui/scroll-area";
 import { Comic_Neue } from "next/font/google";

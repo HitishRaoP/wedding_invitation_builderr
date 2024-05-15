@@ -12,9 +12,6 @@ import { toast } from 'sonner'
 import { useSearchParams } from 'next/navigation'
 import { UploadDropzone } from '@/lib/uploadthing'
 
-type InvitationIdProps = {
-    slug: string
-}
 export function InviteUpdateForm() {
     const [isLoading, startTransition] = useTransition()
     const searchparams = useSearchParams()

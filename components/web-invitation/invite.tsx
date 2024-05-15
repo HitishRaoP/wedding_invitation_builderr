@@ -46,8 +46,6 @@ export function Invite(
 ) {
   const pathname = usePathname();
 
-
-
   return (
     <div className="space-y-4">
       {
