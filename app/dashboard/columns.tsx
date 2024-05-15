@@ -24,6 +24,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { CopyToClipboardButton } from "@/components/copy-button"
+import { toast } from "sonner";
 
 export type ColumnsSchema = {
   projectName: string
@@ -141,9 +142,7 @@ export const columns: ColumnDef<ColumnsSchema>[] = [
     cell: ({ row }) => {
 
       return (
-        <div>
           <AlertDialog>
-            <div>
               <AlertDialogTrigger>  <MdDeleteOutline className="w-4 h-4 text-red-500" /></AlertDialogTrigger>
               <AlertDialogContent>
                 <AlertDialogHeader>
@@ -157,12 +156,11 @@ export const columns: ColumnDef<ColumnsSchema>[] = [
                   <AlertDialogAction className="bg-red-500 hover:bg-red-600" onClick={() => {
                     deleteInvitation(row.getValue("razorpaySignature"), row.getValue("projectLink"))
                     location.reload()
+                    toast.success("Invitation Deleted")
                   }}>Delete</AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>
-            </div>
           </AlertDialog>
-        </div>
       )
     },
   }

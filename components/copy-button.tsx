@@ -10,7 +10,6 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 import { IoShareOutline } from "react-icons/io5";
-import { Button } from "@/components/ui/button";
 import { IoMdCopy } from "react-icons/io";
 import { IoIosCheckmark } from "react-icons/io";
 import { ScrollArea } from './ui/scroll-area';

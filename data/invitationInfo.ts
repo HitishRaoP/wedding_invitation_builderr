@@ -3,7 +3,6 @@
 import { db } from "@/lib/db"
 
 export const getInvitationInfo = async (invitationId: string) => {
-
     return await db.invitation.findUnique({
         where: {
             id: invitationId
