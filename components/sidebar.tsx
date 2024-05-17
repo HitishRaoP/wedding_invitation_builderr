@@ -27,7 +27,7 @@ const list = [
 ]
 export function Sidebar() {
     return (
-        <Sheet  >
+        <Sheet>
             <SheetTrigger>
                 <RxHamburgerMenu className="w-5 h-5" />
             </SheetTrigger>

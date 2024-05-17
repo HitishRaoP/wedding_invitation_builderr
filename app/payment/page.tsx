@@ -54,7 +54,6 @@ function Payment() {
         key: process.env.key_id,
         currency: currency,
         name: 'Website Wedding invitation',
-        description: 'Create modern website wedding invitations in minutes',
         order_id: orderId,
         handler: async function (response: any) {
           const data = {

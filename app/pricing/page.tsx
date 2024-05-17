@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { IoIosCheckmark } from "react-icons/io";
+import { IoIosCheckmark } from "@/components/ui/icons";
 
 const featuresList = [
   "Custom Dashboard",

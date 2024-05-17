@@ -5,7 +5,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import Image from "next/image";
-import { AspectRatio } from "./ui/aspect-ratio";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 export function LandingPage() {
   return (
