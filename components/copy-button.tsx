@@ -21,7 +21,6 @@ import { toast } from 'sonner';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Image from 'next/image';
 import QRCode from 'qrcode';
-import { RWebShare } from "react-web-share";
 
 export const CopyToClipboardButton = ({ text }: { text: string }) => {
     const [isCopied, setIsCopied] = useState(false);
