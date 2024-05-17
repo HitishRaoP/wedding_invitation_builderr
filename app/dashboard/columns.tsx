@@ -13,8 +13,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import Link from "next/link"
-import { FaExternalLinkAlt } from "react-icons/fa";
-import { MdDeleteOutline } from "react-icons/md";
+import { FaExternalLinkAlt, MdDeleteOutline } from "@/components/ui/icons";
 import { deleteInvitation } from "@/actions/delete"
 import { Button } from "@/components/ui/button"
 import {
@@ -154,7 +153,7 @@ export const columns: ColumnDef<ColumnsSchema>[] = [
                 <AlertDialogFooter>
                   <AlertDialogCancel>Cancel</AlertDialogCancel>
                   <AlertDialogAction className="bg-red-500 hover:bg-red-600" onClick={() => {
-                    deleteInvitation(row.getValue("razorpaySignature"), row.getValue("projectLink"))
+                    deleteInvitation(row.getValue("projectLink"))
                     location.reload()
                     toast.success("Invitation Deleted")
                   }}>Delete</AlertDialogAction>

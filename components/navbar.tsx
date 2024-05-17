@@ -9,9 +9,9 @@ import {
     NavigationMenuList,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
-import { CompanyLogo } from "./company-logo"
-import { Sidebar } from "./sidebar"
-import { Profile } from "./profile"
+import { CompanyLogo } from "@/components/company-logo"
+import { Sidebar } from "@/components/sidebar"
+import { Profile } from "@/components/profile"
 
 interface NavbarProps {
     className?: string
