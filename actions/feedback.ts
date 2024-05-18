@@ -38,6 +38,6 @@ export const createFeedback = async (values: z.infer<typeof feedbackSchema>) => 
     })
 
     return {
-        success: "Feedback submitted successfully"
+        success: "Feedback Submitted Successfully"
     }
 }

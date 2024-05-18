@@ -36,6 +36,6 @@ export async function InviteUpdate(invitationId: string, values: z.infer<typeof 
         }
     })
     return {
-        success: "Invitation updated successfully"
+        success: "Invitation Updated Successfully"
     }
 }

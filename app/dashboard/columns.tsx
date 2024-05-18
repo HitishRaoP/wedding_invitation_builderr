@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { ColumnDef } from "@tanstack/react-table"
 import {
   AlertDialog,
@@ -12,7 +13,6 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import Link from "next/link"
 import { FaExternalLinkAlt, MdDeleteOutline } from "@/components/ui/icons";
 import { deleteInvitation } from "@/actions/delete"
 import { Button } from "@/components/ui/button"
@@ -24,7 +24,6 @@ import {
 } from "@/components/ui/tooltip"
 import { CopyToClipboardButton } from "@/components/copy-button"
 import { toast } from "sonner";
-
 export type ColumnsSchema = {
   projectName: string
   projectLink: string
@@ -125,7 +124,7 @@ export const columns: ColumnDef<ColumnsSchema>[] = [
                   <TooltipContent className="flex gap-2 items-center hover:text-blue-600">
                     <FaExternalLinkAlt />
                     <Link href={`https://wedding-invitation-builderr-git-main-hitish-rao-p-s-projects.vercel.app/websites/edit/?pid=${row.getValue("projectLink")}&rid=${row.getValue("razorpaySignature")}`}>
-                    https://wedding-invitation-builderr-git-main-hitish-rao-p-s-projects.vercel.app/websites/edit/?pid={row.getValue("projectLink")}&rid={row.getValue("razorpaySignature")}
+                      https://wedding-invitation-builderr-git-main-hitish-rao-p-s-projects.vercel.app/websites/edit/?pid={row.getValue("projectLink")}&rid={row.getValue("razorpaySignature")}
                     </Link>
                   </TooltipContent>
                 </Tooltip>
@@ -141,25 +140,30 @@ export const columns: ColumnDef<ColumnsSchema>[] = [
     cell: ({ row }) => {
 
       return (
-          <AlertDialog>
-              <AlertDialogTrigger>  <MdDeleteOutline className="w-4 h-4 text-red-500" /></AlertDialogTrigger>
-              <AlertDialogContent>
-                <AlertDialogHeader>
-                  <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-                  <AlertDialogDescription>
-                    This action cannot be undone. This will permanently delete your invitation from the servers.
-                  </AlertDialogDescription>
-                </AlertDialogHeader>
-                <AlertDialogFooter>
-                  <AlertDialogCancel>Cancel</AlertDialogCancel>
-                  <AlertDialogAction className="bg-red-500 hover:bg-red-600" onClick={() => {
-                    deleteInvitation(row.getValue("projectLink"))
+        <AlertDialog>
+          <AlertDialogTrigger>  <MdDeleteOutline className="w-4 h-4 text-red-500" /></AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+              <AlertDialogDescription>
+                This action cannot be undone. This will permanently delete your invitation from the servers.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction className="bg-red-500 hover:bg-red-600" onClick={() => {
+                deleteInvitation(row.getValue("projectLink"))
+                  .then((data) => {
+                    toast.success(data.success)
                     location.reload()
-                    toast.success("Invitation Deleted")
-                  }}>Delete</AlertDialogAction>
-                </AlertDialogFooter>
-              </AlertDialogContent>
-          </AlertDialog>
+                  })
+                  .catch((error) => {
+                    toast.error(error.message)
+                  })
+              }}>Delete</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       )
     },
   }

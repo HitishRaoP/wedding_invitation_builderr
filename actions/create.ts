@@ -61,7 +61,7 @@ export async function Create(values: z.infer<typeof createSchema>) {
   })
 
   return {
-    success: "Website Details Created successfully"
+    success: "Website Details Created Successfully"
   }
 
 }

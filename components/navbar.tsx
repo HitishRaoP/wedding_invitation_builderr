@@ -50,7 +50,7 @@ export function Navbar({ className }: NavbarProps) {
                 <NavigationMenuList className="flex items-center gap-4">
                     <NavigationMenuItem>
                         <Link href="/create" legacyBehavior passHref>
-                            <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-lime-300 hover:bg-lime-400")}>
+                            <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-white hover:text-white border border-lime-500 bg-gradient-to-t from-green-500  via-green-600  to-green-400 hover:to-green-300 data-[active]:text-white")}>
                                 Create
                             </NavigationMenuLink>
                         </Link>
@@ -69,7 +69,7 @@ export function Navbar({ className }: NavbarProps) {
                 <NavigationMenuList className="flex items-center gap-4">
                     <NavigationMenuItem>
                         <Link href="/create" legacyBehavior passHref>
-                            <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-lime-300 hover:bg-lime-400")}>
+                            <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-white hover:text-white border border-lime-500 bg-gradient-to-t from-green-500  via-green-600  to-green-400 hover:to-green-300  data-[active]:text-white")}>
                                 Create
                             </NavigationMenuLink>
                         </Link>

@@ -24,7 +24,7 @@ export async function locationUpdate(invitationId: string, values: z.infer<typeo
   })
 
   return {
-    success: "Location updated successfully"
+    success: "Location Updated Successfully"
   }
 }
 

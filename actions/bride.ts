@@ -25,6 +25,6 @@ export async function BrideUpdate(invitationId: string, values: z.infer<typeof b
         }
     })
     return {
-        success: "Bride Details updated successfully"
+        success: "Bride Details Updated Successfully"
     }
 }

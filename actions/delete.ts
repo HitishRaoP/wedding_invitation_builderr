@@ -3,7 +3,6 @@
 import { db } from "@/lib/db";
 import { utapi } from "@/server/uploadthing";
 export async function deleteInvitation(invitationId: string) {
-
     //Deleting files from uploadthing
     const links = await db.invitation.findMany({
         where: {
@@ -47,4 +46,8 @@ export async function deleteInvitation(invitationId: string) {
             id: invitationId,
         },
     })
+
+    return {
+        success: "Invitation Deleted Successfully"
+    }
 }

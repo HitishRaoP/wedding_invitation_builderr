@@ -25,6 +25,6 @@ export async function groomUpdate(invitationId: string, values: z.infer<typeof g
         }
     })
     return {
-        success: "Groom Details updated successfully"
+        success: "Groom Details Updated Successfully"
     }
 }

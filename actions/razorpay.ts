@@ -25,7 +25,7 @@ export async function CreateRazorpayDetails(pid: string, values: z.infer<typeof 
   })
 
   return {
-    success: "You can now view and edit your project details"
+    success: "You Can Now View & Edit Your Project Details"
   }
 
 }
